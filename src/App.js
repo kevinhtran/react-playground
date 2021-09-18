@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 
-// const cars = ['./images/interior-back.jpeg',
-// './images/interior-front.jpeg',
-// './images/exterior-back.jpeg',
-// './images/exterior-front.jpeg']
-
 const cars = [
   {
     id: 1,
@@ -24,21 +19,38 @@ const cars = [
     path: "./images/exterior-front.jpeg",
   },
 ];
+
 function App() {
 
   const [carImages, setCarImages] = useState(cars);
   const [selectedCar, setSelectedCar] = useState(carImages[2]);
-  
+
   const back = () => {
-    console.log(carImages.filter((car) => car.id === selectedCar.id - 1)[0]);
+    setSelectedCar(carImages.filter((car) => car.id === selectedCar.id - 1)[0]);
+  };
+
+  const next = () => {
+    setSelectedCar(carImages.filter((car) => car.id === selectedCar.id + 1)[0]);
   };
 
   return (
     <div className="App">
       <img src={selectedCar.path} />
       {selectedCar.id === 1 ? (<button disabled>Back</button>) : (<button onClick={back}>Back</button>)}
-      {selectedCar.id === 4 ? (<button disabled>Next</button>) : (<button onClick={() => console.log("yes")}>Next</button>)}
+      {selectedCar.id === 4 ? (<button disabled>Next</button>) : (<button onClick={next}>Next</button>)}
     </div>
   );
 }
 export default App;
+
+// useState("carter");
+
+// function useState(value) {
+//   return [value, () => console.log("carter")]
+// }
+
+// const result = useState("carter")
+
+// const myFunc = result[1]
+
+// myFunc()
