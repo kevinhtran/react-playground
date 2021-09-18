@@ -36,7 +36,7 @@ function App() {
   return (
     <div className="App">
       <img src={selectedCar.path} />
-      {selectedCar.id === 1 ? (<button disabled>Back</button>) : (<button onClick={back}>Back</button>)}
+      {selectedCar.id === carImages[carImages.length - 1].id ? (<button disabled>Back</button>) : (<button onClick={back}>Back</button>)}
       {selectedCar.id === 4 ? (<button disabled>Next</button>) : (<button onClick={next}>Next</button>)}
     </div>
   );
